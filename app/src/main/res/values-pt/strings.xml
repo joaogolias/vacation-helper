@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Vacation Helper</string>
+    <string name="welcome">Bem vindo ao </string>
+    <string name="text_to_login">Por favor, clique no botão abaixo para entrar</string>
+
+</resources>
