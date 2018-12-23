@@ -8,16 +8,16 @@ import kotlinx.android.synthetic.main.activity_login.*
 class LoginActivity : Activity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_login);
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_login)
 
         login_button.setOnClickListener {
-            this.login();
+            this.login()
         }
     }
 
     fun login(){
-        var intent = Intent(this, HomeActivity::class.java);
-        startActivity(intent);
+        var intent = Intent(this, HomeActivity::class.java)
+        startActivity(intent)
     }
 }
