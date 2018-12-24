@@ -46,6 +46,7 @@ class TabItem(context: Context, private val attrs: AttributeSet) : LinearLayout(
             (iconImageViewColorFilter == R.color.black) -> R.color.white
             else -> R.color.black
         }
+        println("iconImageViewColorFilter: $iconImageViewColorFilter")
         setIconDrawable(iconImageViewColorFilter, null)
 
     }

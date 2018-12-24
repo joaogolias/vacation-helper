@@ -22,8 +22,6 @@ class HomeActivity : Activity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        setSelectedTab(food_tab)
-
         val binding = DataBindingUtil.setContentView<ActivityHomeBinding>(this, R.layout.activity_home)
 
         trip  = Trip(
@@ -58,6 +56,11 @@ class HomeActivity : Activity() {
         statistic_tab.setOnClickListener {tab ->
             setSelectedTab(tab as TabItem)
         }
+    }
+
+    override fun onStart() {
+        super.onStart()
+        setSelectedTab(food_tab)
     }
 
     private fun setTripStatus() {
