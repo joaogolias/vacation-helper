@@ -4,4 +4,7 @@
     <string name="welcome">Bem vindo ao </string>
     <string name="text_to_login">Por favor, clique no botão abaixo para entrar</string>
     <string name="login">ENTRAR</string>
+    <string name="trip_not_started_status"> A começar! </string>
+    <string name="trip_started_status"> Começou! </string>
+    <string name="trip_finished_status"> Terminou! </string>
 </resources>
