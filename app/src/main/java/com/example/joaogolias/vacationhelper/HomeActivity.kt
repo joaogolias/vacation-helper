@@ -6,6 +6,7 @@ import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
 import android.os.Bundle
 import android.support.v4.content.ContextCompat
+import android.view.Menu
 import com.example.joaogolias.vacationhelper.databinding.ActivityHomeBinding
 import com.example.joaogolias.vacationhelper.models.Trip
 import kotlinx.android.synthetic.main.activity_home.*
@@ -13,6 +14,11 @@ import java.sql.Timestamp
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
+import android.R.menu
+import android.support.v7.app.AppCompatActivity
+import android.view.MenuInflater
+
+
 
 class HomeActivity : Activity() {
     private var selectedTab: TabItem? = null
@@ -56,6 +62,12 @@ class HomeActivity : Activity() {
         statistic_tab.setOnClickListener {tab ->
             setSelectedTab(tab as TabItem)
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.main_menu, menu)
+        return true
     }
 
     override fun onStart() {
