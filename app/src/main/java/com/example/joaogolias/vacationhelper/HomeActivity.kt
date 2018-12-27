@@ -15,41 +15,83 @@ import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalDateTime
 import android.R.menu
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.view.MenuInflater
-
+import android.view.MenuItem
 
 
 class HomeActivity : AppCompatActivity() {
     private var selectedTab: TabItem? = null
     private var trip: Trip? = null
+    private lateinit var binding: ActivityHomeBinding
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_home)
 
-        val binding = DataBindingUtil.setContentView<ActivityHomeBinding>(this, R.layout.activity_home)
+        binding = DataBindingUtil.setContentView<ActivityHomeBinding>(this, R.layout.activity_home)
 
+        setTrip()
+
+        setTripStatus()
+
+        setToolbarConfig()
+
+        trip_duration_text_view.text = "${trip?.getFormattedDate("initial")} ~ ${trip?.getFormattedDate("final")}"
+
+        setTabItemsClick()
+    }
+
+    override fun onStart() {
+        super.onStart()
+        setSelectedTab(food_tab)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        val inflater = menuInflater
+        inflater.inflate(R.menu.main_menu, menu)
+        return true
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        when (item?.itemId) {
+            R.id.edit_trip ->  {
+                return true
+            }
+            R.id.other_trips -> {
+                return true
+            }
+            R.id.logout -> {
+                val intent = Intent(this, LoginActivity::class.java)
+                startActivity(intent)
+                return true
+            }
+            else -> return super.onOptionsItemSelected(item)
+        }
+
+    }
+
+
+
+
+
+    private fun setTrip() {
         trip  = Trip(
             "Viagem para Europa",
             1545500812000,
             1545500812000
         )
 
-        setTripStatus()
+        binding.trip = trip
+    }
 
-
-        // Find the toolbar view inside the activity layout
-//        val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
-        // Sets the Toolbar to act as the ActionBar for this Activity window.
-        // Make sure the toolbar exists in the activity and is not null
+    private fun setToolbarConfig() {
         setSupportActionBar(toolbar)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+    }
 
-        binding.trip = trip
-
-        trip_duration_text_view.text = "${trip?.getFormattedDate("initial")} ~ ${trip?.getFormattedDate("final")}"
-        
+    private fun setTabItemsClick() {
         food_tab.setOnClickListener {tab ->
             println("my click")
             setSelectedTab(tab as TabItem)
@@ -70,17 +112,6 @@ class HomeActivity : AppCompatActivity() {
         statistic_tab.setOnClickListener {tab ->
             setSelectedTab(tab as TabItem)
         }
-    }
-
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater = menuInflater
-        inflater.inflate(R.menu.main_menu, menu)
-        return true
-    }
-
-    override fun onStart() {
-        super.onStart()
-        setSelectedTab(food_tab)
     }
 
     private fun setTripStatus() {
