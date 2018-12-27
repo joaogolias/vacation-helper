@@ -18,21 +18,18 @@ class LoginActivity : Activity() {
             this.login()
         }
 
-        val prefsManager = SharedPreferencesManager(this)
-        val selectedTrip = prefsManager.getObjectValue("selectedTrip", Trip::class.java)
-
-        println("selectedTrip: $selectedTrip")
-
-        if (selectedTrip !== null) {
-            var intent = Intent(this, HomeActivity::class.java)
-            startActivity(intent)
-        }
-
-
     }
 
     fun login(){
-        var intent = Intent(this, HomeActivity::class.java)
+        var intent = Intent(this, TripListActivity::class.java)
+
+        val prefsManager = SharedPreferencesManager(this)
+        val selectedTrip = prefsManager.getObjectValue("selectedTrip", Trip::class.java)
+
+        if (selectedTrip !== null) {
+            intent = Intent(this, HomeActivity::class.java)
+        }
+
         startActivity(intent)
     }
 }

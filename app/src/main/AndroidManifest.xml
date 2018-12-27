@@ -20,6 +20,10 @@
                 android:name=".HomeActivity"
                 android:theme="@style/Theme.AppCompat.Light.NoActionBar">
         </activity>
+        <activity
+                android:name=".TripListActivity"
+                android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+        </activity>
     </application>
 
 </manifest>

@@ -9,5 +9,5 @@
     <string name="trip_not_started_status">To start!</string>
     <string name="trip_started_status">Started!</string>
     <string name="trip_finished_status">Finished!</string>
-    <string name="title_activity_main_home">MainHomeActivity</string>
+    <string name="select_trip"> Select a trip </string>
 </resources>

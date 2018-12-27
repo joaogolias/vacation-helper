@@ -51,20 +51,24 @@ class HomeActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        var intent: Intent
         when (item?.itemId) {
             R.id.edit_trip ->  {
                 return true
             }
             R.id.other_trips -> {
+                intent = Intent(this, TripListActivity::class.java)
+                startActivity(intent)
                 return true
             }
             R.id.logout -> {
-                val intent = Intent(this, LoginActivity::class.java)
+                intent = Intent(this, LoginActivity::class.java)
                 startActivity(intent)
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
         }
+
 
     }
 

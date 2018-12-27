@@ -10,4 +10,5 @@
     <string name="trip_not_started_status"> A começar! </string>
     <string name="trip_started_status"> Começou! </string>
     <string name="trip_finished_status"> Terminou! </string>
+    <string name="select_trip"> Selecione uma viagem </string>
 </resources>
