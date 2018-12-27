@@ -1,6 +1,6 @@
 package com.example.joaogolias.vacationhelper
 
-import android.app.Activity
+import android.content.Context
 import android.databinding.DataBindingUtil
 import android.graphics.PorterDuff
 import android.graphics.drawable.Drawable
@@ -10,15 +10,11 @@ import android.view.Menu
 import com.example.joaogolias.vacationhelper.databinding.ActivityHomeBinding
 import com.example.joaogolias.vacationhelper.models.Trip
 import kotlinx.android.synthetic.main.activity_home.*
-import java.sql.Timestamp
 import java.time.Instant
-import java.time.LocalDate
-import java.time.LocalDateTime
-import android.R.menu
 import android.content.Intent
 import android.support.v7.app.AppCompatActivity
-import android.view.MenuInflater
 import android.view.MenuItem
+import com.example.joaogolias.vacationhelper.manager.SharedPreferencesManager
 
 
 class HomeActivity : AppCompatActivity() {
@@ -72,16 +68,19 @@ class HomeActivity : AppCompatActivity() {
 
     }
 
-
-
-
-
     private fun setTrip() {
         trip  = Trip(
             "Viagem para Europa",
             1545500812000,
             1545500812000
         )
+
+        trip?.let {
+            val prefsManager = SharedPreferencesManager(this)
+            println("saving trip")
+            println("trip: $trip")
+            prefsManager.saveObjectValue(it, "selectedTrip")
+        }
 
         binding.trip = trip
     }
