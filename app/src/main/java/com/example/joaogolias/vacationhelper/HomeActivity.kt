@@ -20,7 +20,7 @@ import android.view.MenuInflater
 
 
 
-class HomeActivity : Activity() {
+class HomeActivity : AppCompatActivity() {
     private var selectedTab: TabItem? = null
     private var trip: Trip? = null
 
@@ -37,6 +37,14 @@ class HomeActivity : Activity() {
         )
 
         setTripStatus()
+
+
+        // Find the toolbar view inside the activity layout
+//        val toolbar = findViewById<View>(R.id.toolbar) as Toolbar
+        // Sets the Toolbar to act as the ActionBar for this Activity window.
+        // Make sure the toolbar exists in the activity and is not null
+        setSupportActionBar(toolbar)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
 
         binding.trip = trip
 

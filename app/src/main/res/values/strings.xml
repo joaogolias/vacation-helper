@@ -6,7 +6,8 @@
     <string name="edit">Edit</string>
     <string name="trips">Trips</string>
     <string name="logout">Logout</string>
-    <string name="trip_not_started_status"> To start! </string>
-    <string name="trip_started_status"> Started! </string>
-    <string name="trip_finished_status"> Finished! </string>
+    <string name="trip_not_started_status">To start!</string>
+    <string name="trip_started_status">Started!</string>
+    <string name="trip_finished_status">Finished!</string>
+    <string name="title_activity_main_home">MainHomeActivity</string>
 </resources>
