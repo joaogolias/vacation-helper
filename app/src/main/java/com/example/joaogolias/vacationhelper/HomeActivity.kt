@@ -73,19 +73,8 @@ class HomeActivity : AppCompatActivity() {
     }
 
     private fun setTrip() {
-        trip  = Trip(
-            "Viagem para Europa",
-            1545500812000,
-            1545500812000
-        )
-
-        trip?.let {
-            val prefsManager = SharedPreferencesManager(this)
-            println("saving trip")
-            println("trip: $trip")
-            prefsManager.saveObjectValue(it, "selectedTrip")
-        }
-
+        val prefsManager = SharedPreferencesManager(this)
+        trip = prefsManager.getObjectValue("selectedTrip", Trip::class.java)
         binding.trip = trip
     }
 
